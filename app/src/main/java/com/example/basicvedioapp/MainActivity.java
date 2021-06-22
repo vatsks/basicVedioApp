@@ -3,6 +3,7 @@ package com.example.basicvedioapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.MediaController;
 import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
         VideoView videoView=findViewById(R.id.videoView2);
         videoView.setVideoPath("android.resource://" + getPackageName() +"/"+R.raw.wildlife );
+        MediaController mediaController=new MediaController(this);
+        mediaController.setAnchorView(videoView);
+        videoView.setMediaController(mediaController);
 
         videoView.start();
     }
